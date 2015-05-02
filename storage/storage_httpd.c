@@ -174,8 +174,19 @@ static void generic_handler(struct evhttp_request *req, void *arg)
 		return;
 	}
 
+    char *extName;
+    int ext_len;
+    extName = strrchr(true_filename, '.');
+    if (extName == NULL)
+    {
+        return;
+    }
+    extName++;
+    ext_len = strlen(extName);
+
+
 	if (fdfs_http_get_content_type_by_extname(&g_http_params, \
-		true_filename, content_type, sizeof(content_type)) != 0)
+		true_filename, ext_len, content_type, sizeof(content_type)) != 0)
         {
 		evhttp_send_error(req, HTTP_SERVUNAVAIL, "Service unavail");
 		return;

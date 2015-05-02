@@ -65,7 +65,7 @@ TARGET_CONF_PATH=/etc/fdfs
 
 DEBUG_FLAG=1
 
-CFLAGS='-Wall -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE'
+CFLAGS='-Wall -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -DWITH_HTTPD'
 if [ "$DEBUG_FLAG" = "1" ]; then
   CFLAGS="$CFLAGS -g -O -DDEBUG_FLAG"
 else
@@ -115,8 +115,8 @@ elif [ "$uname" = "FreeBSD" ]; then
   fi
 fi
 
-TRACKER_HTTPD_OBJS=''
-STORAGE_HTTPD_OBJS=''
+TRACKER_HTTPD_OBJS='tracker_httpd.o tracker_http_check.o ../common/mime_file_parser.o ../common/fdfs_http_shared.o'
+STORAGE_HTTPD_OBJS='storage_httpd.o ../common/mime_file_parser.o ../common/fdfs_http_shared.o'
 if [ "$DEBUG_FLAG" = "1" ]; then
   TRACKER_HTTPD_OBJS="$TRACKER_HTTPD_OBJS tracker_dump.o"
   STORAGE_HTTPD_OBJS="$STORAGE_HTTPD_OBJS storage_dump.o"
