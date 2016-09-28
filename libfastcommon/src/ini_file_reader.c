@@ -190,7 +190,7 @@ int iniLoadFromFileEx(const char *szFilename, IniContext *pContext,
 {
 	int result;
 	int len;
-	char *pLast;
+	const char *pLast;
 	char full_filename[MAX_PATH_SIZE];
 
 	if ((result=iniInitContext(pContext)) != 0)
@@ -821,7 +821,7 @@ static char *iniAllocContent(IniContext *pContext, const int content_len)
         pDynamicContents->alloc_count = alloc_count;
     }
 
-    buff = malloc(content_len);
+    buff = (char* ) malloc(content_len);
     if (buff == NULL)
     {
         logError("file: "__FILE__", line: %d, "
