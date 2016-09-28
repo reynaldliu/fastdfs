@@ -1,5 +1,8 @@
 Copyright (C) 2008 Happy Fish / YuQing
 
+This version of FastDFS is a modified version from Happy Fish/ YuQing 's original code,
+and apply all of his Licences.
+
 FastDFS may be copied only under the terms of the GNU General
 Public License V3, which may be found in the FastDFS source kit.
 Please visit the FastDFS Home Page for more detail.
