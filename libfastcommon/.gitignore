@@ -1,0 +1,14 @@
+*.lo
+src/Makefile
+src/_os_define.h
+src/libfastcommon.a
+src/libfastcommon.so
+tags
+src/tests/test_allocator
+src/tests/test_blocked_queue
+src/tests/test_id_generator
+src/tests/test_mblock
+src/tests/test_multi_skiplist
+src/tests/test_skiplist
+
+
