@@ -108,12 +108,11 @@ char *replaceCRLF2Space(char *s)
 char *getAbsolutePath(const char *filename, char *szAbsPath, \
 		const int pathSize)
 {
-	char *p;
 	int nPathLen;
 	char szPath[1024];
 	char cwd[256];
 	
-	p = strrchr(filename, '/');
+	const char* p = strrchr(filename, '/');
 	if (p == NULL)
 	{
 		szPath[0] = '\0';
@@ -283,7 +282,6 @@ int getUserProcIds(const char *progName, const bool bAllOwners, \
 	int  fd;
 	char filepath[128];
 	char buf[256];
-	char *ptr;
 	int  nbytes;
 	char procname[64];
 	int  cnt=0;
@@ -303,7 +301,7 @@ int getUserProcIds(const char *progName, const bool bAllOwners, \
 		return -1;
 	}
 
-	ptr = strrchr(progName, '/');
+	const char* ptr = strrchr(progName, '/');
 	if (ptr == NULL)
 	{
 		strcpy(pTargetProg, progName);
@@ -638,10 +636,9 @@ char *formatDateYYYYMMDDHHMISS(const time_t t, char *szDateBuff, const int nSize
 int getOccurCount(const char *src, const char seperator)
 {
 	int count;
-	char *p;
 
 	count = 0;
-	p = strchr(src, seperator);
+	const char* p = strchr(src, seperator);
 	while (p != NULL)
 	{
 		count++;
@@ -1515,7 +1512,6 @@ static int check_realloc_allow_ips(in_addr_t **allow_ip_addrs,
 static int parse_cidr_ips(const char *ip_addr, in_addr_t **allow_ip_addrs,
 	int *alloc_count, int *allow_ip_count, const int remain_items)
 {
-	char *pSlash;
 	char *pReservedEnd;
 	char ip_part[IP_ADDRESS_SIZE];
 	int ip_len;
@@ -1529,7 +1525,7 @@ static int parse_cidr_ips(const char *ip_addr, in_addr_t **allow_ip_addrs,
 	int result;
 	struct in_addr addr;
 
-	pSlash = strchr(ip_addr, '/');
+	const char* pSlash = strchr(ip_addr, '/');
 	if (pSlash == NULL)
 	{
 		return EINVAL;

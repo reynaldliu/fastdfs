@@ -51,10 +51,10 @@ static unsigned int prime_array[] = {
 
 static int _hash_alloc_buckets(HashArray *pHash, const unsigned int old_capacity)
 {
-	size_t bytes;
+	int64_t bytes;
 
 	bytes = sizeof(HashData *) * (*pHash->capacity);
-	if (pHash->max_bytes > 0 && pHash->bytes_used+bytes > pHash->max_bytes)
+	if (pHash->max_bytes > 0 && pHash->bytes_used + bytes > pHash->max_bytes)
 	{
 		return ENOSPC;
 	}
