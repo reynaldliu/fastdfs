@@ -52,7 +52,7 @@ fi
 
 DEBUG_FLAG=0
 
-CFLAGS='-Wall -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE'
+CFLAGS='-Wall -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_FORMAT_MACROS'
 if [ "$DEBUG_FLAG" = "1" ]; then
   CFLAGS="$CFLAGS -g -DDEBUG_FLAG"
 else
@@ -67,6 +67,7 @@ HAVE_USER_H=0
 if [ "$uname" = "Linux" ]; then
   OS_NAME=OS_LINUX
   IOEVENT_USE=IOEVENT_USE_EPOLL
+  CC=g++
 elif [ "$uname" = "FreeBSD" ] || [ "$uname" = "Darwin" ]; then
   OS_NAME=OS_FREEBSD 
   IOEVENT_USE=IOEVENT_USE_KQUEUE
@@ -147,6 +148,7 @@ sed_replace()
 
 cd src
 cp Makefile.in Makefile
+sed_replace "s/\\\$(CC)/$CC/g" Makefile
 sed_replace "s/\\\$(CFLAGS)/$CFLAGS/g" Makefile
 sed_replace "s/\\\$(LIBS)/$LIBS/g" Makefile
 sed_replace "s/\\\$(LIB_VERSION)/$LIB_VERSION/g" Makefile

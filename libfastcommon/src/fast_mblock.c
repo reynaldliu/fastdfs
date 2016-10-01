@@ -208,7 +208,7 @@ int fast_mblock_manager_stat_print(const bool hide_empty)
     while (result == EOVERFLOW)
     {
         alloc_size *= 2;
-        stats = (fast_mblock_info *) realloc(stats, sizeof(struct fast_mblock_info) * alloc_size);
+        stats = (struct fast_mblock_info *) realloc(stats, sizeof(struct fast_mblock_info) * alloc_size);
         if (stats == NULL)
         {
             return ENOMEM;
