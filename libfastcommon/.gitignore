@@ -5,6 +5,7 @@ src/_os_define.h
 src/libfastcommon.a
 src/libfastcommon.so
 src/libfastcommon_c++.a
+src/libfastcommon_c++.so
 tags
 src/tests/test_allocator
 src/tests/test_blocked_queue
