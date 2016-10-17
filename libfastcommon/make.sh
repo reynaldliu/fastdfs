@@ -67,7 +67,7 @@ HAVE_USER_H=0
 if [ "$uname" = "Linux" ]; then
   OS_NAME=OS_LINUX
   IOEVENT_USE=IOEVENT_USE_EPOLL
-  CC=g++
+  CC=gcc
 elif [ "$uname" = "FreeBSD" ] || [ "$uname" = "Darwin" ]; then
   OS_NAME=OS_FREEBSD 
   IOEVENT_USE=IOEVENT_USE_KQUEUE
