@@ -24,7 +24,7 @@ libfastcommon_c++.a: $(FAST_CPP_STATIC_OBJS)
 	$(COMPILE) -o $@ $<  $(FAST_CPP_STATIC_OBJS) $(LIB_PATH) $(INC_PATH)
 .c.o:
 	$(COMPILE) -c -o $@ $<  $(INC_PATH)
-.c.lo:
+.cc.lo:
 	$(COMPILE) -c -fPIC -o $@ $<  $(INC_PATH)
 install:
 	mkdir -p $(DESTDIR)/usr/lib64
