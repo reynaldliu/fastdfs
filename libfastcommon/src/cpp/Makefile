@@ -4,8 +4,8 @@ COMPILE = g++ -Wall -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE -D__STDC_FORMAT_MACROS 
 INC_PATH = 
 LIB_PATH = -lm -lpthread
 
-FAST_CPP_SHARED_OBJS = exception.lo 
-FAST_CPP_STATIC_OBJS = exception.o
+FAST_CPP_SHARED_OBJS = exception.lo hash_array.lo
+FAST_CPP_STATIC_OBJS = exception.o hash_array.o
 
 ALL_OBJS = $(FAST_CPP_STATIC_OBJS) $(FAST_CPP_SHARED_OBJS)
 
